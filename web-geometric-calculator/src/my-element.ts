@@ -59,8 +59,8 @@ export class MyElement extends LitElement {
           <h2 class='title-main' >FIGURAS GEOMETRICAS PLANAS</h2>
           
             <div class='square'>
+              
               <svg class='figures-svg' viewBox="0 0 24 24"><title>square-outline</title><path d="M3,3H21V21H3V3M5,5V19H19V5H5Z" /></svg>
-
               <p class='title-figures' >CUADRADO</p>
 
               <form id='square-form' class='form-square'>
@@ -80,7 +80,38 @@ export class MyElement extends LitElement {
                     >
                     CALCULAR</button>
 
-                  <p>Ingrese valores ancho, Largo del cuadrado para calcular su área y perímetro.</p>
+                  <p>Ingrese los valores ancho y largo del cuadrado para calcular su área.</p>
+
+                </div>
+              </form>
+
+            </div>
+
+            <hr class='hr-line' />
+
+            <div class='square'>
+              
+              <svg class='figures-svg' viewBox="0 0 24 24"><title>triangle-outline</title><path d="M12,2L1,21H23M12,6L19.53,19H4.47" /></svg>
+              <p class='title-figures' >TRIANGULO</p>
+
+              <form id='triangle-form' class='form-triangle'>
+                
+                <div>
+                  <label>Base:</label>
+                  <input type="number" name="ancho" id="input-triangle-base" class='input-form'/>
+
+                  <label class=''>Altura:</label>
+                  <input type="number" name="alto" id="input-triangle-height" class='input-form'/>
+
+                  <button 
+                    id='triangle-btn' 
+                    class='counter' 
+                    type="button"
+                    @click=${this._onTriangleClick}
+                    >
+                    CALCULAR</button>
+
+                  <p>Ingrese los valores base y altura del triángulo para calcular su área.</p>
 
                 </div>
               </form>
@@ -105,6 +136,7 @@ export class MyElement extends LitElement {
           </ul> -->
 
         </div>
+
         <div id="social">
           
           <svg class="header-svg" role="presentation" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>disc</title><path d="M12,14C10.89,14 10,13.1 10,12C10,10.89 10.89,10 12,10C13.11,10 14,10.89 14,12A2,2 0 0,1 12,14M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" /></svg>
@@ -113,41 +145,70 @@ export class MyElement extends LitElement {
 
           <h2 class='title-main' >FIGURAS GEOMETRICAS SOLIDAS</h2>
 
-          
-          
-          
-
           <div class='square'>
               <svg class='figures-svg' viewBox="0 0 24 24"><title>cube</title><path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15Z" /></svg>
 
               <p class='title-figures' >CUBO</p>
 
-              <form id='square-form' class='form-square'>
+              <form id='cube-form' class='form-cube'>
                 
                 <div>
                   <label>Ancho:</label>
-                  <input type="number" name="ancho" id="input-square-width" class='input-form'/>
+                  <input type="number" name="ancho" id="input-cube-width" class='input-form'/>
 
                   <label>Largo:</label>
-                  <input type="number" name="largo" id="input-square-length" class='input-form'/>
+                  <input type="number" name="largo" id="input-cube-length" class='input-form'/>
 
                   <label class=''>Alto:</label>
-                  <input type="number" name="alto" id="input-square-height" class='input-form'/>
+                  <input type="number" name="alto" id="input-cube-height" class='input-form'/>
 
                   <button 
-                    id='square-btn' 
+                    id='cube-btn' 
                     class='counter' 
                     type="button"
                     @click=${this._cubeClick}
                     >
                     CALCULAR</button>
 
-                  <p>Ingrese valores ancho, largo y alto del cubo para calcular su volumen.</p>
+                  <p>Ingrese los valores ancho, largo y alto del cubo para calcular su volumen.</p>
 
                 </div>
               </form>
 
             </div>
+
+            <hr class='hr-line' />
+
+            <div class='square'>
+
+              <svg class='figures-svg' viewBox="0 0 24 24"><title>cylinder</title><path d="M12 2C9.89 2 3 2.29 3 6V18C3 21.71 9.89 22 12 22C14.11 22 21 21.71 21 18V6C21 2.29 14.11 2 12 2M12 10C13.38 10 16.8 9.87 19 8.75V15.25C16.8 14.13 13.38 14 12 14S7.2 14.13 5 15.25V8.75C7.2 9.87 10.62 10 12 10M12 4C15.87 4 19 4.89 19 6C19 7.11 15.87 8 12 8C8.13 8 5 7.11 5 6C5 4.89 8.13 4 12 4M12 20C8.13 20 5 19.11 5 18C5 16.9 8.13 16 12 16C15.87 16 19 16.9 19 18C19 19.11 15.87 20 12 20Z" /></svg>
+              <p class='title-figures' >CILINDRO</p>
+
+              <form id='cylinder-form' class='form-cylinder'>
+                
+                <div>
+                  <label>Radio:</label>
+                  <input type="number" name="radio" id="input-cylinder-radius" class='input-form'/>
+
+                  <label>Altura:</label>
+                  <input type="number" name="altura" id="input-cylinder-height" class='input-form'/>
+
+                  <button 
+                    id='cylinder-btn' 
+                    class='counter' 
+                    type="button"
+                    @click=${this._cylinderClick}
+                    >
+                    CALCULAR</button>
+
+                  <p>Ingrese los valores radio y altura del cilindro para calcular su volumen.</p>
+
+                </div>
+              </form>
+
+            </div>
+
+
 
           
           <!-- <ul>
@@ -189,7 +250,19 @@ export class MyElement extends LitElement {
       </section>
 
       <div class="ticks"></div>
-      <section id="spacer"></section>
+        <section id="spacer">
+          <footer>
+            <address>
+              <p><small>Autor: Jorge Andres Giraldo Arenas</small></p>
+              <p><small>Establecimiento educativo: SENA</small></p>
+              <p><small>Evidencia: GA1-240201528-AA4-EV01 </small></p>
+            </address>
+            <p><small>&copy; 2026 MIT, Apache 2.0 o GPL v3</small></p>
+            <p><small>Codigo abierto de uso libre</small></p>
+            <p><small>Github: <a href="https://github.com/andresganc/geometric-calculator" target="_blank">https://github.com/andresganc/geometric-calculator</a></small></p>
+            <p><small>Tecnologias usadas: TypeScript, HTML, CSS (Lit, Vite, WebComponents)</small></p>
+          </footer>
+      </section>
     `
   }
 
@@ -208,16 +281,16 @@ export class MyElement extends LitElement {
 
     if (!isNaN(width) && !isNaN(height)) {
       const area = width * height;
-      alert(`El área del cuadrado es: ${area}`);
+      alert(`El área del cuadrado es: ${area} cm2`);
     } else {
       alert('Por favor, ingrese valores válidos para el ancho y el alto.');
     }
   }
 
   private _cubeClick() {
-    const widthInput = this.shadowRoot?.getElementById('input-square-width') as HTMLInputElement;
-    const lengthInput = this.shadowRoot?.getElementById('input-square-length') as HTMLInputElement;
-    const heightInput = this.shadowRoot?.getElementById('input-square-height') as HTMLInputElement;
+    const widthInput = this.shadowRoot?.getElementById('input-cube-width') as HTMLInputElement;
+    const lengthInput = this.shadowRoot?.getElementById('input-cube-length') as HTMLInputElement;
+    const heightInput = this.shadowRoot?.getElementById('input-cube-height') as HTMLInputElement;
 
     const width = parseFloat(widthInput.value);
     const length = parseFloat(lengthInput.value);
@@ -225,9 +298,39 @@ export class MyElement extends LitElement {
 
     if (!isNaN(width) && !isNaN(length) && !isNaN(height)) {
       const volume = width * length * height;
-      alert(`El volumen del cubo es: ${volume}`);
+      alert(`El volumen del cubo es: ${volume} cm3`);
     } else {
       alert('Por favor, ingrese valores válidos para el ancho, largo y alto.');
+    }
+  }
+
+  private _onTriangleClick() {
+    const baseInput = this.shadowRoot?.getElementById('input-triangle-base') as HTMLInputElement;
+    const heightInput = this.shadowRoot?.getElementById('input-triangle-height') as HTMLInputElement;
+
+    const base = parseFloat(baseInput.value);
+    const height = parseFloat(heightInput.value);
+
+    if (!isNaN(base) && !isNaN(height)) {
+      const area = (base * height) / 2;
+      alert(`El área del triángulo es: ${area} cm2`);
+    } else {
+      alert('Por favor, ingrese valores válidos para la base y la altura.');
+    }
+  }
+
+  private _cylinderClick() {
+    const radiusInput = this.shadowRoot?.getElementById('input-cylinder-radius') as HTMLInputElement;
+    const heightInput = this.shadowRoot?.getElementById('input-cylinder-height') as HTMLInputElement;
+
+    const radius = parseFloat(radiusInput.value);
+    const height = parseFloat(heightInput.value);
+
+    if (!isNaN(radius) && !isNaN(height)) {
+      const volume = Math.PI * Math.pow(radius, 2) * height;
+      alert(`El volumen del cilindro es: ${volume.toFixed(2)} cm3`);
+    } else {
+      alert('Por favor, ingrese valores válidos para el radio y la altura.');
     }
   }
 
@@ -462,6 +565,12 @@ export class MyElement extends LitElement {
       margin-bottom: 10px;
     }
 
+    .hr-line {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 30px 0;
+    }
+
     /* GEOMETRIC FIGURES */
 
 
@@ -588,6 +697,8 @@ export class MyElement extends LitElement {
 
       #spacer {
         height: 48px;
+        margin-top: 24px;
+        font-size: 14px;
       }
     }
   `
