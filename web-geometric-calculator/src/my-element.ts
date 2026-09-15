@@ -53,25 +53,24 @@ export class MyElement extends LitElement {
 
       <section id="next-steps">
         <div id="docs">
-          <svg class="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>FIGURAS GEOMETRICAS PLANAS</h2>
+
+          <svg class='header-svg' viewBox="0 0 24 24"><title>square</title><path d="M3,3V21H21V3" /></svg>
+          
+          <h2 class='title-main' >FIGURAS GEOMETRICAS PLANAS</h2>
           
             <div class='square'>
+              <svg class='figures-svg' viewBox="0 0 24 24"><title>square-outline</title><path d="M3,3H21V21H3V3M5,5V19H19V5H5Z" /></svg>
 
-              <svg class='square-svg' viewBox="0 0 24 24"><title>square-outline</title><path d="M3,3H21V21H3V3M5,5V19H19V5H5Z" /></svg>
-
-              <p class='title-square' >Cuadrado</p>
+              <p class='title-figures' >CUADRADO</p>
 
               <form id='square-form' class='form-square'>
                 
                 <div>
                   <label>Ancho:</label>
-                  <input type="number" name="ancho" id="input-square-width"/>
+                  <input type="number" name="ancho" id="input-square-width" class='input-form'/>
 
-                  <label class=''>Alto:</label>
-                  <input type="number" name="alto" id="input-square-height"/>
+                  <label class=''>Largo:</label>
+                  <input type="number" name="alto" id="input-square-height" class='input-form'/>
 
                   <button 
                     id='square-btn' 
@@ -80,6 +79,8 @@ export class MyElement extends LitElement {
                     @click=${this._onSquareClick}
                     >
                     CALCULAR</button>
+
+                  <p>Ingrese valores ancho, Largo del cuadrado para calcular su área y perímetro.</p>
 
                 </div>
               </form>
@@ -105,12 +106,51 @@ export class MyElement extends LitElement {
 
         </div>
         <div id="social">
-          <svg class="icon" role="presentation" aria-hidden="true">
+          
+          <svg class="header-svg" role="presentation" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>disc</title><path d="M12,14C10.89,14 10,13.1 10,12C10,10.89 10.89,10 12,10C13.11,10 14,10.89 14,12A2,2 0 0,1 12,14M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" /></svg>
             <use href="/icons.svg#social-icon"></use>
           </svg>
-          <h2>FIGURAS GEOMETRICAS CILINDRICAS</h2>
-          <p>Join the Vite community</p>
-          <ul>
+
+          <h2 class='title-main' >FIGURAS GEOMETRICAS SOLIDAS</h2>
+
+          
+          
+          
+
+          <div class='square'>
+              <svg class='figures-svg' viewBox="0 0 24 24"><title>cube</title><path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15Z" /></svg>
+
+              <p class='title-figures' >CUBO</p>
+
+              <form id='square-form' class='form-square'>
+                
+                <div>
+                  <label>Ancho:</label>
+                  <input type="number" name="ancho" id="input-square-width" class='input-form'/>
+
+                  <label>Largo:</label>
+                  <input type="number" name="largo" id="input-square-length" class='input-form'/>
+
+                  <label class=''>Alto:</label>
+                  <input type="number" name="alto" id="input-square-height" class='input-form'/>
+
+                  <button 
+                    id='square-btn' 
+                    class='counter' 
+                    type="button"
+                    @click=${this._cubeClick}
+                    >
+                    CALCULAR</button>
+
+                  <p>Ingrese valores ancho, largo y alto del cubo para calcular su volumen.</p>
+
+                </div>
+              </form>
+
+            </div>
+
+          
+          <!-- <ul>
             <li>
               <a href="https://github.com/vitejs/vite" target="_blank">
                 <svg class="button-icon" role="presentation" aria-hidden="true">
@@ -143,7 +183,8 @@ export class MyElement extends LitElement {
                 Bluesky
               </a>
             </li>
-          </ul>
+          </ul> -->
+
         </div>
       </section>
 
@@ -173,9 +214,26 @@ export class MyElement extends LitElement {
     }
   }
 
+  private _cubeClick() {
+    const widthInput = this.shadowRoot?.getElementById('input-square-width') as HTMLInputElement;
+    const lengthInput = this.shadowRoot?.getElementById('input-square-length') as HTMLInputElement;
+    const heightInput = this.shadowRoot?.getElementById('input-square-height') as HTMLInputElement;
+
+    const width = parseFloat(widthInput.value);
+    const length = parseFloat(lengthInput.value);
+    const height = parseFloat(heightInput.value);
+
+    if (!isNaN(width) && !isNaN(length) && !isNaN(height)) {
+      const volume = width * length * height;
+      alert(`El volumen del cubo es: ${volume}`);
+    } else {
+      alert('Por favor, ingrese valores válidos para el ancho, largo y alto.');
+    }
+  }
 
 
-  // STYLE
+
+  // STYLES
 
   static styles = css`
     
@@ -363,21 +421,50 @@ export class MyElement extends LitElement {
       border-right: 1px solid var(--border);
     }
 
-    /* SQUARE */
-    .square {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+    /* GEOMETRIC FIGURES */
+
+    .header-svg {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+      fill: var(--accent);
+      /* background-color: var(--accent-bg); */
     }
 
-    .square-svg {
+    .figures-svg {
       width: 120px;
       height: 120px;
       transition: transform 0.3s ease;
       fill: var(--accent);
       /* background-color: var(--accent-bg); */
     }
+
+    .input-form {
+      width: 50px;
+      padding: 8px;
+      margin: 5px;
+      margin-right: 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .title-main {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    .title-figures {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* GEOMETRIC FIGURES */
+
+
 
     #next-steps ul {
       list-style: none;
