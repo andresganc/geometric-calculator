@@ -1,2 +1,3 @@
-# course-programming
+# GEOMETRIC CALCULATOR
+
 Course NC - Programming

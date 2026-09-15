@@ -26,21 +26,27 @@ export class MyElement extends LitElement {
           <img src=${litLogo} class="framework" alt="Lit logo" />
           <img src=${viteLogo} class="vite" alt="Vite logo" />
         </div>
+
         <div>
           <slot></slot>
-          <p>
-            Edit <code>src/my-element.ts</code> and save to test
-            <code>HMR</code>
-          </p>
+          
+          <div>
+
+            <div>
+
+            </div>
+          </div>
         </div>
-        <button
+
+        <!-- <button
           type="button"
           class="counter"
           @click=${this._onClick}
           part="button"
         >
           Count is ${this.count}
-        </button>
+        </button> -->
+
       </section>
 
       <div class="ticks"></div>
@@ -50,28 +56,59 @@ export class MyElement extends LitElement {
           <svg class="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
+          <h2>FIGURAS GEOMETRICAS PLANAS</h2>
+          
+            <div class='square'>
+
+              <svg class='square-svg' viewBox="0 0 24 24"><title>square-outline</title><path d="M3,3H21V21H3V3M5,5V19H19V5H5Z" /></svg>
+
+              <p class='title-square' >Cuadrado</p>
+
+              <form id='square-form' class='form-square'>
+                
+                <div>
+                  <label>Ancho:</label>
+                  <input type="number" name="ancho" id="input-square-width"/>
+
+                  <label class=''>Alto:</label>
+                  <input type="number" name="alto" id="input-square-height"/>
+
+                  <button 
+                    id='square-btn' 
+                    class='counter' 
+                    type="button"
+                    @click=${this._onSquareClick}
+                    >
+                    CALCULAR</button>
+
+                </div>
+              </form>
+
+            </div>
+            
+
+          <!-- <ul>
             <li>
               <a href="https://vite.dev/" target="_blank">
                 <img class="logo" src=${viteLogo} alt="" />
                 Explore Vite
               </a>
             </li>
+
             <li>
               <a href="https://lit.dev/" target="_blank">
                 <img class="button-icon" src=${litLogo} alt="" />
                 Learn more
               </a>
             </li>
-          </ul>
+          </ul> -->
+
         </div>
         <div id="social">
           <svg class="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
-          <h2>Connect with us</h2>
+          <h2>FIGURAS GEOMETRICAS CILINDRICAS</h2>
           <p>Join the Vite community</p>
           <ul>
             <li>
@@ -115,11 +152,33 @@ export class MyElement extends LitElement {
     `
   }
 
+  // CODE
+
   private _onClick() {
     this.count++
   }
 
+  private _onSquareClick() {
+    const widthInput = this.shadowRoot?.getElementById('input-square-width') as HTMLInputElement;
+    const heightInput = this.shadowRoot?.getElementById('input-square-height') as HTMLInputElement;
+
+    const width = parseFloat(widthInput.value);
+    const height = parseFloat(heightInput.value);
+
+    if (!isNaN(width) && !isNaN(height)) {
+      const area = width * height;
+      alert(`El área del cuadrado es: ${area}`);
+    } else {
+      alert('Por favor, ingrese valores válidos para el ancho y el alto.');
+    }
+  }
+
+
+
+  // STYLE
+
   static styles = css`
+    
     :host {
       --text: #6b6375;
       --text-h: #08060d;
@@ -302,6 +361,22 @@ export class MyElement extends LitElement {
 
     #docs {
       border-right: 1px solid var(--border);
+    }
+
+    /* SQUARE */
+    .square {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .square-svg {
+      width: 120px;
+      height: 120px;
+      transition: transform 0.3s ease;
+      fill: var(--accent);
+      /* background-color: var(--accent-bg); */
     }
 
     #next-steps ul {
